@@ -11,29 +11,33 @@ import java.util.*;
  */
 public class PrintTriangle {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		/*
 		 * 两种输入方法：1.run-》run configurations->Arguments输入
 		 *          2.Scanner类
-		 */
-		int h =  Integer.parseInt(args[0]);  //1
-//		Scanner hight = new Scanner(System.in); //2
-//		System.out.println("请输入三角形高度数值：");
-//		int h = hight.nextInt();
+		 */		
+//		int h=Integer.parseInt(args[0]);  //1
+		Scanner hight = new Scanner(System.in); //2
+		System.out.println("请输入三角形高度数值：");
+		int h=hight.nextInt();
 		
 		/*未输入参数exception*/
 		try {
 			h = Integer.parseInt(args[0]);
-		}catch(ArrayIndexOutOfBoundsException e1) {
-			System.out.println("未输入高度参数！");
+//			h = hight.nextInt();
+			if(h==0) {
+				System.out.println("未输入高度参数！");
+			}
+		}catch(ArrayIndexOutOfBoundsException e1) {			
 			System.out.println("触发异常为："+e1);
 		}
 		
 		/*输入非法参数exception*/
 		try {
 			h =  Integer.parseInt(args[0]);
-		}catch(NumberFormatException e2) {
+//			h = hight.nextInt();
+		}catch(InputMismatchException e2) {
 			System.out.println("输入非法高度参数！");
 			System.out.println("触发异常为："+e2);
 		}
