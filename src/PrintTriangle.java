@@ -18,38 +18,33 @@ public class PrintTriangle {
 		 *          2.Scanner类
 		 */		
 //		int h=Integer.parseInt(args[0]);  //1
-		Scanner hight = new Scanner(System.in); //2
-		System.out.println("请输入三角形高度数值：");
-		int h=hight.nextInt();
+//		Scanner hight = new Scanner(System.in); //2
+//		int h=hight.nextInt();
 		
-		/*未输入参数exception*/
 		try {
-			h = Integer.parseInt(args[0]);
-//			h = hight.nextInt();
-			if(h==0) {
-				System.out.println("未输入高度参数！");
+			int h = Integer.parseInt(args[0]);
+			System.out.print("高度数值:"+h);
+			System.out.println();
+			for(int i = 0;i<h;i++) {
+				for(int j = 0;j < h-i;j++) {
+					System.out.print(" ");
+				}
+				for(int k = 0;k <= 2*i;k++) {
+					System.out.print("*");
+				}
+				System.out.println();
 			}
-		}catch(ArrayIndexOutOfBoundsException e1) {			
+			
+		}
+		/*未输入参数exception*/		
+		catch(ArrayIndexOutOfBoundsException e1) {	
+			System.out.println("未输入高度参数！");		
 			System.out.println("触发异常为："+e1);
 		}
-		
 		/*输入非法参数exception*/
-		try {
-			h =  Integer.parseInt(args[0]);
-//			h = hight.nextInt();
-		}catch(InputMismatchException e2) {
+		catch(NumberFormatException e2) {
 			System.out.println("输入非法高度参数！");
 			System.out.println("触发异常为："+e2);
-		}
-		
-		for(int i = 0;i<h;i++) {
-			for(int j = 0;j < h-i;j++) {
-				System.out.print(" ");
-			}
-			for(int k = 0;k <= 2*i;k++) {
-				System.out.print("*");
-			}
-			System.out.println();
 		}
 		
 		
